@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tasklist:TaskListSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsPicklist="http://xcp.emc.com/picklist" xmlns:tasklist="http://xcp.emc.com/search/tasklist" urn="urn:cia:com.emc.xcp.artifact.search.tasklist:Artifacts/Task-list Queries/claims_queue.tasklist" categoryId="com.emc.xcp.artifact.search.tasklist" name="claims_queue" label="Claims Queue" assignment="WORKQUEUE" origin="SPECIFIC_PROCESS">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="claims_queue" label="Claims Queue" implCategoryId="com.emc.xcp.artifact.search.tasklist">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="workqueue" label="Work Queue Name" refDataSourceContract="//@workqueuesDatasource">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_name" label="Task Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_date_sent" label="Sent Date">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="packagesclaimobject_name" label="Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="packagesclaimamount" label="Amount">
+          <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="packagesclaimclaim_status" label="Claim Status">
+          <attributeType xsi:type="nsPicklist:PickListType">
+            <pickList href="urn:cia:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
+          </attributeType>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="packagespolicylast_name" label="Last Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_performer_name" label="Performer Name" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="task_state" label="State" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="workqueue_name" label="Work Queue Name" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="process_system_name" label="Process System Name" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="activity_system_name" label="Activity System Name" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="is_rejectable" label="Is Rejectable" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="is_repeatable" label="Is Repeatable" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="is_delegable" label="Is Delegable" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+    </primaryElement>
+  </datasource>
+  <columns label="Task Name">
+    <contextSelection>
+      <parentRef>
+        <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#//@attributes.13"/>
+    </contextSelection>
+  </columns>
+  <columns label="Sent Date">
+    <contextSelection selectionType="DATETIME">
+      <parentRef>
+        <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.task:Artifacts/Tasks/OOTBTask.task#//@attributes.4"/>
+    </contextSelection>
+  </columns>
+  <columns label="Name">
+    <contextSelection>
+      <parentRef selectionType="MODEL">
+        <parentRef selectionName="packages" selectionLabel="Packages">
+          <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        </parentRef>
+        <dataRef href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='object_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Amount">
+    <contextSelection selectionType="FLOAT">
+      <parentRef selectionType="MODEL">
+        <parentRef selectionName="packages" selectionLabel="Packages">
+          <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        </parentRef>
+        <dataRef href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+      </parentRef>
+      <dataRef href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#//@attributes[name='amount']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Claim Status">
+    <contextSelection selectionType="INTEGER">
+      <parentRef selectionType="MODEL">
+        <parentRef selectionName="packages" selectionLabel="Packages">
+          <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        </parentRef>
+        <dataRef href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
+      </parentRef>
+      <dataRef href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#//@attributes[name='claim_status']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Last Name">
+    <contextSelection>
+      <parentRef selectionType="MODEL">
+        <parentRef selectionName="packages" selectionLabel="Packages">
+          <parentRef selectionName="task_list" selectionLabel="Task List"/>
+        </parentRef>
+        <dataRef href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#/"/>
+      </parentRef>
+      <dataRef href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#//@attributes[name='last_name']"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+  <processes href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/claim_processing.process#/"/>
+  <workqueues href="urn:cia:com.emc.xcp.artifact.appparameter:Artifacts/Parameters/claims_work_queue.parameter#/"/>
+  <workqueuesDatasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="claims_queue_workqueue" label="Claims Queue Workqueue" description="" implCategoryId="com.emc.xcp.artifact.search.tasklist">
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="name" label="name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="label" label="label">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement name="queue"/>
+  </workqueuesDatasource>
+</tasklist:TaskListSearch>

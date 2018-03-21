@@ -343,8 +343,8 @@
         <propertyMap key="tooltip" value="//@rootContainer/@children.0/@children.1/@properties.11"/>
         <propertyMap key="cls" value="//@rootContainer/@children.0/@children.1/@properties.12"/>
         <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.1/@properties.13"/>
-        <children componentDefinitionId="xcp_value_display" parent="//@rootContainer/@children.0/@children.1" widgetEntry="//@widgetMap[key='value_display']">
-          <properties name="fieldLabel" value="Vehicle in Motion" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.0"/>
+        <children componentDefinitionId="xcp_value_display" parent="//@rootContainer/@children.0/@children.1" widgetEntry="//@widgetMap[key='location_map']">
+          <properties name="fieldLabel" value="Location Map" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.0"/>
           <properties name="valueType" value="HTML" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.1"/>
           <properties name="isRepeating" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.2"/>
           <properties name="name" value="" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.3"/>
@@ -365,7 +365,7 @@
           <properties name="tooltip" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.9"/>
           <properties name="disableImgLayout" value="false" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.10"/>
           <properties xsi:type="uitemplate:DataboundProperty" name="value" value="'&lt;img src=&quot;http://maps.googleapis.com/maps/api/staticmap?&#xD;&#xA;sensor=false&amp;size=200x100&amp;zoom=15&amp;center=' + claim.incident_location +&#xD;&#xA;'&amp;markers=' + claim.incident_location + '&quot;/>'" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.11"/>
-          <properties name="xcpId" value="value_display" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.12"/>
+          <properties name="xcpId" value="location_map" entry="//@rootContainer/@children.0/@children.1/@children.0/@propertyMap.12"/>
           <propertyMap key="fieldLabel" value="//@rootContainer/@children.0/@children.1/@children.0/@properties.0"/>
           <propertyMap key="valueType" value="//@rootContainer/@children.0/@children.1/@children.0/@properties.1"/>
           <propertyMap key="isRepeating" value="//@rootContainer/@children.0/@children.1/@children.0/@properties.2"/>
@@ -1203,6 +1203,6 @@
   <widgetMap key="incident_location" value="//@rootContainer/@children.0/@children.0/@children.1"/>
   <widgetMap key="amount" value="//@rootContainer/@children.0/@children.0/@children.2"/>
   <widgetMap key="vehicle_in_motion" value="//@rootContainer/@children.0/@children.0/@children.3"/>
-  <widgetMap key="value_display" value="//@rootContainer/@children.0/@children.1/@children.0"/>
+  <widgetMap key="location_map" value="//@rootContainer/@children.0/@children.1/@children.0"/>
   <primaryModel href="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder#/"/>
 </uitemplate:Page>

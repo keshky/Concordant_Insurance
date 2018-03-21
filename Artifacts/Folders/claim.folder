@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<nsDatatypes:Folder xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder" categoryId="com.emc.xcp.artifact.folder" name="claim" label="Claim" commentable="true">
+<nsDatatypes:Folder xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsCommon="http://xcp.emc.com/common" xmlns:nsCommon_1="http://documentum.com/common" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" xmlns:nsPicklist="http://xcp.emc.com/picklist" urn="urn:cia:com.emc.xcp.artifact.folder:Artifacts/Folders/claim.folder" categoryId="com.emc.xcp.artifact.folder" name="claim" label="Claim" commentable="true">
   <attributes name="incident_date" label="Incident Date">
     <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
   </attributes>
@@ -17,6 +17,53 @@
       <pickList href="urn:cia:com.emc.xcp.artifact.picklist:Artifacts/Picklists/claim_status.picklist#/"/>
     </type>
   </attributes>
+  <eventConfigs label="Process Claim" description="">
+    <triggerType type="RELATED">
+      <refObject href="urn:cia:com.emc.xcp.artifact.relation:Artifacts/Relationships/claim_policy.relationship#/"/>
+    </triggerType>
+    <action xsi:type="nsCommon:ServiceEventAction">
+      <serviceBinding>
+        <service xsi:type="nsCommon_1:InvokeProcessService" name="Start Sub-Process">
+          <configParams name="START_SUB_PROCESS_START_ACTIVITY" value="Start"/>
+          <configParams name="START_SUB_PROCESS_START_ACTIVITY_ALL" value="START_SUB_PROCESS_START_ACTIVITY_ALL_YES"/>
+          <process href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/claim_processing.process#/"/>
+        </service>
+        <inputMappingRules>
+          <expression exprStr="event.claim.r_object_id"/>
+          <targetNode dataRef="/" selectionName="claim" selectionLabel="claim (Claim)" useNamePreferred="true">
+            <parentRef selectionName="Packages" selectionLabel="Packages">
+              <parentRef>
+                <dataRef href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/claim_processing.process#/"/>
+              </parentRef>
+            </parentRef>
+          </targetNode>
+        </inputMappingRules>
+        <inputMappingRules>
+          <expression exprStr="event.related_policy.policy.r_object_id"/>
+          <targetNode selectionName="policy" selectionLabel="policy (Policy)" useNamePreferred="true">
+            <parentRef selectionName="Packages" selectionLabel="Packages">
+              <parentRef>
+                <dataRef href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/claim_processing.process#/"/>
+              </parentRef>
+            </parentRef>
+            <dataRef href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/policy.businessobj#/"/>
+          </targetNode>
+        </inputMappingRules>
+        <inputMappingRules>
+          <expression exprStr="event.claim.vehicle.vehicle.r_object_id"/>
+          <targetNode selectionName="vehicle" selectionLabel="vehicle (Vehicle)" useNamePreferred="true">
+            <parentRef selectionName="Packages" selectionLabel="Packages">
+              <parentRef>
+                <dataRef href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/claim_processing.process#/"/>
+              </parentRef>
+            </parentRef>
+            <dataRef href="urn:cia:com.emc.xcp.artifact.bo:Artifacts/Business Objects/vehicle.businessobj#/"/>
+          </targetNode>
+        </inputMappingRules>
+      </serviceBinding>
+    </action>
+    <condition exprStr=""/>
+  </eventConfigs>
   <accessControlPolicy inheritedFromParentFolder="true"/>
   <defaultFolderPath exprStr="'/Concordant'"/>
   <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_claim" label="Create Claim" implCategoryId="com.emc.xcp.artifact.folder">

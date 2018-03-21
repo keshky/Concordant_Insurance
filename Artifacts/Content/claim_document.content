@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nsDatatypes:Document xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:contentanalytics="http://xcp.emc.com/contentanalytics" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" urn="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content" categoryId="com.emc.xcp.artifact.doc" name="claim_document" label="Claim Document" commentable="true">
+  <attributes name="business" label="Business Terms (USA)" repeating="true">
+    <type xsi:type="contentanalytics:DiscoveredMetadataType">
+      <discoveredMetadata xsi:type="contentanalytics:Taxonomy" href="urn:xcp:com.emc.xcp.artifact.contentanalytics:Artifacts/Discovered Metadata/taxonomy_business_us.discoveredmetadata#/"/>
+    </type>
+  </attributes>
+  <attributes name="email" label="Email Address" repeating="true">
+    <type xsi:type="contentanalytics:DiscoveredMetadataType">
+      <discoveredMetadata xsi:type="contentanalytics:PatternMetadata" href="urn:xcp:com.emc.xcp.artifact.contentanalytics:Artifacts/Discovered Metadata/pattern_metadata_email.discoveredmetadata#/"/>
+    </type>
+  </attributes>
+  <attributes name="phone" label="Phone Number" repeating="true">
+    <type xsi:type="contentanalytics:DiscoveredMetadataType">
+      <discoveredMetadata xsi:type="contentanalytics:NamedEntity" href="urn:xcp:com.emc.xcp.artifact.contentanalytics:Artifacts/Discovered Metadata/named_entity_phone.discoveredmetadata#/"/>
+    </type>
+  </attributes>
+  <accessControlPolicy inheritedFromParentFolder="true"/>
+  <defaultFolderPath/>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_create_claim_document" label="Create Claim Document" implCategoryId="com.emc.xcp.artifact.doc">
+    <primaryElement dataModel="/"/>
+    <actionType type="Create"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_update_claim_document" label="Update Claim Document" implCategoryId="com.emc.xcp.artifact.doc">
+    <primaryElement dataModel="/"/>
+    <actionType type="Update"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_delete_claim_document" label="Delete Claim Document" implCategoryId="com.emc.xcp.artifact.doc">
+    <primaryElement dataModel="/"/>
+    <actionType type="Delete"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_import_claim_document" label="Import Claim Document" implCategoryId="com.emc.xcp.artifact.doc">
+    <primaryElement dataModel="/"/>
+    <actionType type="Import"/>
+  </dataActionContracts>
+  <dataActionContracts categoryId="com.emc.xcp.artifact.dataservice.dataactioncontract" name="da_def_importnewversion_claim_document" label="ImportNewVersion Claim Document" implCategoryId="com.emc.xcp.artifact.doc">
+    <primaryElement dataModel="/"/>
+    <actionType type="ImportNewVersion"/>
+  </dataActionContracts>
+  <dataSourceContracts categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="ds_read_claim_document" label="Read Claim Document" implCategoryId="com.emc.xcp.artifact.doc">
+    <inputs xsi:type="nsDataserviceContract:IdElement" name="id" label="Object ID">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="business" label="Business Terms (USA)" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="email" label="Email Address" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="phone" label="Phone Number" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </outputs>
+    <primaryElement dataModel="/"/>
+    <runtimeConfig extendedFrom="xcp_ds_read_dm_document_outputs" linkrel="contents/cia_claim_document" actionId="read"/>
+  </dataSourceContracts>
+  <dataSourceContracts categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="ds_read_claim_document_defaults" label="Read Claim Document Defaults" implCategoryId="com.emc.xcp.artifact.doc">
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="business" label="Business Terms (USA)" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="email" label="Email Address" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="phone" label="Phone Number" repeating="true">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </outputs>
+    <primaryElement dataModel="/"/>
+    <runtimeConfig extendedFrom="xcp_ds_read_dm_document_defaults_outputs" linkrel="http://identifiers.emc.com/linkrel/defaults" actionId="readdefault"/>
+  </dataSourceContracts>
+  <superType xsi:type="nsDatatypes:Document" href="urn:xcp:com.emc.xcp.artifact.doc:Artifacts/Content/dm_document.content#/"/>
+</nsDatatypes:Document>

@@ -111,12 +111,14 @@
             <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/edit_policy.page#/"/>
           </data>
         </properties>
+        <properties name="navObjectId" value="claim[0].id" entry="//@items.2/@actionProperties.2/@action/@propertyMap.6"/>
         <propertyMap key="redirectStyle" value="//@items.2/@actionProperties.2/@action/@properties.0"/>
         <propertyMap key="showSuccessNotification" value="//@items.2/@actionProperties.2/@action/@properties.1"/>
         <propertyMap key="showConfirmation" value="//@items.2/@actionProperties.2/@action/@properties.2"/>
         <propertyMap key="navType" value="//@items.2/@actionProperties.2/@action/@properties.3"/>
         <propertyMap key="actionType" value="//@items.2/@actionProperties.2/@action/@properties.4"/>
         <propertyMap key="navPageId" value="//@items.2/@actionProperties.2/@action/@properties.5"/>
+        <propertyMap key="navObjectId" value="//@items.2/@actionProperties.2/@action/@properties.6"/>
       </action>
     </actionProperties>
     <actionProperties name="menu_action_name" value="action_flow"/>

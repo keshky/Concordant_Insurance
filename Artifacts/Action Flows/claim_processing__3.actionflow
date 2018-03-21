@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actionflow:ActionFlow xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:actionflow="http://www.emc.com/xcp2/2010/actionflow" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" urn="urn:cia:com.emc.xcp.artifact.actionFlow:Artifacts/Action Flows/claim_processing__3.actionflow" categoryId="com.emc.xcp.artifact.actionFlow" name="claim_processing__3" label="Delegate task Second Approval (Claim Processing) " initialState="//@states[id='viewState_usergroup_selection']">
+  <inputs xsi:type="nsDataserviceContract:StructureElement" name="processVariables" label="Variables">
+    <elements xsi:type="nsDataserviceContract:AttributeElement" name="response" label="response">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </elements>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:StructureElement" name="processPackages" label="Packages">
+    <elements xsi:type="nsDataserviceContract:StructureElement" name="claim" label="claim">
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="amount" label="Amount">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="claim_status" label="Claim Status">
+        <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_date" label="Incident Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="incident_location" label="Incident Location">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_in_motion" label="Vehicle in Motion">
+        <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+      </elements>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:StructureElement" name="policy" label="policy">
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="a_is_hidden" label="Is Hidden">
+        <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="acl_name" label="ACL Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="acl_domain" label="ACL Domain">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="address_line" label="Address">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="coverage" label="Coverage">
+        <attributeType xsi:type="nsAttributeDatatypes:FloatType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="end_date" label="End Date">
+        <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="first_name" label="First Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="last_name" label="Last Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+    </elements>
+    <elements xsi:type="nsDataserviceContract:StructureElement" name="vehicle" label="vehicle">
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object Id">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="a_is_hidden" label="Is Hidden">
+        <attributeType xsi:type="nsAttributeDatatypes:BooleanType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="acl_name" label="ACL Name">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="acl_domain" label="ACL Domain">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="model" label="Model">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_make" label="Vehicle Make">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="vin" label="VIN">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+      </elements>
+      <elements xsi:type="nsDataserviceContract:AttributeElement" name="vehicle_year" label="Year">
+        <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+      </elements>
+    </elements>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:AttributeElement" name="attachments" label="Attachments" repeating="true">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+  </inputs>
+  <inputs xsi:type="nsDataserviceContract:AttributeElement" name="id" label="id">
+    <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+  </inputs>
+  <primaryElement>
+    <dataModel href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/claim_processing.process#//@activities[name='Second%20Approval']/@taskContract"/>
+  </primaryElement>
+  <dataActions categoryId="com.emc.xcp.artifact.dataservice.dataaction" name="da_actionflow_claim_processing__3" label="da_actionflow_claim_processing__3">
+    <inputMappings name="processVariables">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processVariables.response">
+      <expression exprStr="actionflow.Inputs.processVariables.response"/>
+    </inputMappings>
+    <inputMappings name="processPackages">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.id">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.object_name">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.object_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.amount">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.amount"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.claim_status">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.claim_status"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_date">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.incident_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.incident_location">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.incident_location"/>
+    </inputMappings>
+    <inputMappings name="processPackages.claim.vehicle_in_motion">
+      <expression exprStr="actionflow.Inputs.processPackages.claim.vehicle_in_motion"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.id">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.object_name">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.object_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.a_is_hidden">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.a_is_hidden"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.acl_name">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.acl_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.acl_domain">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.acl_domain"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.address_line">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.address_line"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.coverage">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.coverage"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.end_date">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.end_date"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.first_name">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.first_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.policy.last_name">
+      <expression exprStr="actionflow.Inputs.processPackages.policy.last_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle">
+      <expression/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.id">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.id"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.object_name">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.object_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.a_is_hidden">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.a_is_hidden"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.acl_name">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.acl_name"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.acl_domain">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.acl_domain"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.model">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.model"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.vehicle_make">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.vehicle_make"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.vin">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.vin"/>
+    </inputMappings>
+    <inputMappings name="processPackages.vehicle.vehicle_year">
+      <expression exprStr="actionflow.Inputs.processPackages.vehicle.vehicle_year"/>
+    </inputMappings>
+    <inputMappings name="attachments">
+      <expression exprStr="actionflow.Inputs.attachments"/>
+    </inputMappings>
+    <inputMappings name="id">
+      <expression exprStr="actionflow.Inputs.id"/>
+    </inputMappings>
+    <inputMappings name="userName">
+      <expression exprStr="actionflow.steps.usergroup_selection.widgets.username_dropdown_list.value"/>
+    </inputMappings>
+    <contract xsi:type="nsDataserviceContract:DataActionContract" href="urn:cia:com.emc.ide.artifact.process:Artifacts/Processes/claim_processing.process#//@activities[name='Second%20Approval']/@taskContract/@dataServiceContracts[name='da_def_delegate_claim_processing_work_queue_task_1']"/>
+  </dataActions>
+  <actionInstanceProperty actionInstance="//@dataActions[name='da_actionflow_claim_processing__3']"/>
+  <states xsi:type="actionflow:EndState" id="success"/>
+  <states xsi:type="actionflow:EndState" id="error"/>
+  <states xsi:type="actionflow:ActionState" id="finish" dataAction="//@dataActions[name='da_actionflow_claim_processing__3']">
+    <transitions on="success" to="//@states[id='success']"/>
+    <transitions on="error" to="//@states[id='error']"/>
+  </states>
+  <states xsi:type="actionflow:EndState" id="cancel"/>
+  <states xsi:type="actionflow:ViewState" id="viewState_usergroup_selection">
+    <transitions on="cancel" to="//@states[id='cancel']"/>
+    <transitions on="finish" to="//@states[id='finish']"/>
+    <step href="urn:xcp:com.emc.xcp.artifact.uistep:Artifacts/UI Steps/usergroup_selection.uistep#/"/>
+  </states>
+</actionflow:ActionFlow>

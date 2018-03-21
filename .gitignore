@@ -1,0 +1,7 @@
+configuration/
+gen/
+META-INF/
+target/
+.index
+.generatedresources
+runapp.log

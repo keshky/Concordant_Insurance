@@ -187,17 +187,17 @@
               </children>
             </children>
           </children>
-          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_button" parent="//@rootContainer/@children.0/@children.0/@children.0" widgetEntry="//@widgetMap[key='nav_button1']">
-            <properties name="text" value="App Roles" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.0"/>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_button" parent="//@rootContainer/@children.0/@children.0/@children.0" widgetEntry="//@widgetMap[key='tasks']">
+            <properties name="text" value="Tasks" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.0"/>
             <properties name="iconCls" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.1"/>
             <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.2"/>
             <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.3"/>
             <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.4"/>
             <properties name="tooltip" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.5"/>
             <properties name="navType" value="page_static" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.6"/>
-            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_manage_app_role" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.7">
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_tasks" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.7">
               <data selectionName="manage_app_role" selectionLabel="Manage Application Roles">
-                <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/manage_app_role.page#/"/>
+                <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/tasks.page#/"/>
               </data>
             </properties>
             <properties name="navPageIdExpr" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.8"/>
@@ -206,7 +206,7 @@
             <properties name="navToNewTab" value="" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.11"/>
             <properties name="navNewTabTarget" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.12"/>
             <properties name="navUrlParams" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.13"/>
-            <properties name="xcpId" value="nav_button1" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.14"/>
+            <properties name="xcpId" value="tasks" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.14"/>
             <properties name="menu" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@propertyMap.15"/>
             <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@properties.0"/>
             <propertyMap key="iconCls" value="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@properties.1"/>
@@ -225,22 +225,27 @@
             <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@properties.14"/>
             <propertyMap key="menu" value="//@rootContainer/@children.0/@children.0/@children.0/@children.1/@properties.15"/>
           </children>
-          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_button" parent="//@rootContainer/@children.0/@children.0/@children.0" widgetEntry="//@widgetMap[key='nav_button2']">
-            <properties name="text" value="Menu Item 3" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.0"/>
+          <children xsi:type="uitemplate:Container" componentDefinitionId="xcp_nav_button" parent="//@rootContainer/@children.0/@children.0/@children.0" widgetEntry="//@widgetMap[key='search']">
+            <properties name="text" value="Document Search" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.0"/>
             <properties name="iconCls" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.1"/>
             <properties name="hidden" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.2"/>
             <properties name="disabled" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.3"/>
             <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.4"/>
             <properties name="tooltip" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.5"/>
-            <properties name="navType" value="none" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.6"/>
-            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.7"/>
+            <properties name="navType" value="page_static" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.6"/>
+            <properties xsi:type="uitemplate:DataboundProperty" name="navPageId" value="cia_claim_document_sear" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.7">
+              <data selectionName="manage_app_role" selectionLabel="Manage Application Roles">
+                <dataRef href="urn:cia:com.emc.xcp.artifact.page:Artifacts/Pages/claim_document_sear.page#/"/>
+              </data>
+            </properties>
             <properties name="navPageIdExpr" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.8"/>
             <properties name="navUrlExpr" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.9"/>
             <properties name="navObjectId" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.10"/>
             <properties name="navToNewTab" value="" type="BOOLEAN" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.11"/>
             <properties name="navNewTabTarget" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.12"/>
             <properties name="navUrlParams" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.13"/>
-            <properties name="xcpId" value="nav_button2" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.14"/>
+            <properties name="xcpId" value="search" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.14"/>
+            <properties name="menu" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@propertyMap.15"/>
             <propertyMap key="text" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@properties.0"/>
             <propertyMap key="iconCls" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@properties.1"/>
             <propertyMap key="hidden" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@properties.2"/>
@@ -256,6 +261,7 @@
             <propertyMap key="navNewTabTarget" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@properties.12"/>
             <propertyMap key="navUrlParams" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@properties.13"/>
             <propertyMap key="xcpId" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@properties.14"/>
+            <propertyMap key="menu" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2/@properties.15"/>
           </children>
           <children componentDefinitionId="xcp_user_button" parent="//@rootContainer/@children.0/@children.0/@children.0" widgetEntry="//@widgetMap[key='user_button']">
             <properties name="cls" value="" entry="//@rootContainer/@children.0/@children.0/@children.0/@children.3/@propertyMap.0"/>
@@ -283,12 +289,12 @@
   <widgetMap key="column_box" value="//@rootContainer/@children.0"/>
   <widgetMap key="columnhbox" value="//@rootContainer/@children.0/@children.0"/>
   <widgetMap key="navigation_menu" value="//@rootContainer/@children.0/@children.0/@children.0"/>
-  <widgetMap key="nav_button1" value="//@rootContainer/@children.0/@children.0/@children.0/@children.1"/>
-  <widgetMap key="nav_button2" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2"/>
   <widgetMap key="user_button" value="//@rootContainer/@children.0/@children.0/@children.0/@children.3"/>
   <widgetMap key="page" value="//@rootContainer/@children.1"/>
   <widgetMap key="menu" value="//@rootContainer/@children.0/@children.0/@children.0/@children.0/@children.0"/>
   <widgetMap key="new_policy" value="//@rootContainer/@children.0/@children.0/@children.0/@children.0/@children.0/@children.0"/>
   <widgetMap key="policies" value="//@rootContainer/@children.0/@children.0/@children.0/@children.0"/>
   <widgetMap key="policy_search" value="//@rootContainer/@children.0/@children.0/@children.0/@children.0/@children.0/@children.1"/>
+  <widgetMap key="tasks" value="//@rootContainer/@children.0/@children.0/@children.0/@children.1"/>
+  <widgetMap key="search" value="//@rootContainer/@children.0/@children.0/@children.0/@children.2"/>
 </uitemplate:Page>

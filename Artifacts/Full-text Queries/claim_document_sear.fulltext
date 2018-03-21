@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fulltext:FullTextSearch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:fulltext="http://xcp.emc.com/search/fulltext" xmlns:nsAttributeDatatypes="http://xcp.emc.com/attribute_datatypes" xmlns:nsDataserviceContract="http://xcp.emc.com/DataserviceContract" xmlns:nsDatatypes="http://xcp.emc.com/datatypes" urn="urn:cia:com.emc.xcp.artifact.search.fulltext:Artifacts/Full-text Queries/claim_document_sear.fulltext" categoryId="com.emc.xcp.artifact.search.fulltext" name="claim_document_sear" label="Claim Document Search" summaryColumn="true">
+  <datasource categoryId="com.emc.xcp.artifact.dataservice.datasourcecontract" name="claim_document_sear" label="Claim Document Search" implCategoryId="com.emc.xcp.artifact.search.fulltext">
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="q" label="Full-Text">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <inputs xsi:type="nsDataserviceContract:AttributeElement" name="input_name" label="Name">
+      <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+    </inputs>
+    <outputs xsi:type="nsDataserviceContract:AttributeElement" name="Result Count">
+      <attributeType xsi:type="nsAttributeDatatypes:IntegerType"/>
+    </outputs>
+    <outputs xsi:type="nsDataserviceContract:ArrayElement" name="Results">
+      <item xsi:type="nsDataserviceContract:StructureElement" name="Items">
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="object_name" label="Name">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="a_content_type" label="ContentType">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_modify_date" label="Last changed">
+          <attributeType xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="id" label="Object ID" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="r_object_type" label="Object type" sortable="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="summary" label="Summary" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+        <elements xsi:type="nsDataserviceContract:AttributeElement" name="matchingterms" label="MatchingTerms" repeating="true" hidden="true">
+          <attributeType xsi:type="nsAttributeDatatypes:StringType"/>
+        </elements>
+      </item>
+    </outputs>
+    <primaryElement>
+      <dataModel href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+    </primaryElement>
+    <facets name="facet_contenttype" label="ContentType">
+      <facetType xsi:type="nsDataserviceContract:AttributeDataTypeFacet">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType" href="urn:xcp:com.emc.xcp.artifact.doc:Artifacts/Content/dm_document.content#//@attributes[name='a_content_type']/@type"/>
+      </facetType>
+    </facets>
+    <facets name="facet_created_by" label="Created by">
+      <facetType xsi:type="nsDataserviceContract:AttributeDataTypeFacet">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType" href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_creator_name']/@type"/>
+      </facetType>
+    </facets>
+    <facets name="facet_created_on" label="Created on">
+      <facetType xsi:type="nsDataserviceContract:EnumTypeFacet">
+        <type xsi:type="nsAttributeDatatypes:DateTimeType"/>
+        <entries value="LAST_YEAR" label="Last Year"/>
+        <entries value="TODAY" label="Today"/>
+        <entries value="LAST_MONTH" label="Last Month"/>
+        <entries value="THIS_YEAR" label="This Year"/>
+        <entries value="YESTERDAY" label="Yesterday"/>
+        <entries value="THIS_WEEK" label="This Week"/>
+        <entries value="OLDER" label="Older"/>
+        <entries value="THIS_MONTH" label="This Month"/>
+      </facetType>
+    </facets>
+    <facets name="facet_object_type" label="Object type">
+      <facetType xsi:type="nsDataserviceContract:AttributeDataTypeFacet">
+        <attributeType xsi:type="nsAttributeDatatypes:StringType" href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_object_type']/@type"/>
+      </facetType>
+    </facets>
+  </datasource>
+  <inputParameters label="Name" name="name">
+    <formInputs xsi:type="fulltext:FullTextFormInput" operator="com.emc.xcp.model.common.StringOperator:CONTAIN">
+      <contextSelection>
+        <parentRef selectionType="MODEL">
+          <dataRef href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+        </parentRef>
+        <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='object_name']"/>
+      </contextSelection>
+    </formInputs>
+  </inputParameters>
+  <columns label="Name">
+    <contextSelection>
+      <parentRef selectionType="MODEL">
+        <dataRef href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='object_name']"/>
+    </contextSelection>
+  </columns>
+  <columns label="ContentType">
+    <contextSelection>
+      <parentRef selectionType="MODEL">
+        <dataRef href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.doc:Artifacts/Content/dm_document.content#//@attributes[name='a_content_type']"/>
+    </contextSelection>
+  </columns>
+  <columns label="Last changed">
+    <contextSelection selectionType="DATETIME">
+      <parentRef selectionType="MODEL">
+        <dataRef href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_modify_date']"/>
+    </contextSelection>
+  </columns>
+  <defaultSort ascending="true"/>
+  <dataType xsi:type="nsDatatypes:Document" href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+  <filters xsi:type="fulltext:StringFilter" name="contenttype" label="ContentType" orderBy="FREQUENCY">
+    <contextSelection>
+      <parentRef selectionType="MODEL">
+        <dataRef href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.doc:Artifacts/Content/dm_document.content#//@attributes[name='a_content_type']"/>
+    </contextSelection>
+    <groupBy xsi:type="fulltext:StringGroupBy"/>
+    <applyCondition/>
+  </filters>
+  <filters xsi:type="fulltext:StringFilter" name="created_by" label="Created by" orderBy="FREQUENCY">
+    <contextSelection>
+      <parentRef selectionType="MODEL">
+        <dataRef href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_creator_name']"/>
+    </contextSelection>
+    <groupBy xsi:type="fulltext:StringGroupBy"/>
+    <applyCondition/>
+  </filters>
+  <filters xsi:type="fulltext:DateFilter" name="created_on" label="Created on" distinctValues="false">
+    <contextSelection selectionType="DATETIME">
+      <parentRef selectionType="MODEL">
+        <dataRef href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_creation_date']"/>
+    </contextSelection>
+    <groupBy xsi:type="fulltext:DateGroupBy" range="RELATIVEDATES"/>
+    <applyCondition/>
+  </filters>
+  <filters xsi:type="fulltext:StringFilter" name="object_type" label="Object type" orderBy="FREQUENCY">
+    <contextSelection>
+      <parentRef selectionType="MODEL">
+        <dataRef href="urn:cia:com.emc.xcp.artifact.doc:Artifacts/Content/claim_document.content#/"/>
+      </parentRef>
+      <dataRef href="urn:xcp:com.emc.xcp.artifact.basetype:Artifacts/Base Type/basetype.basetype#//@attributes[name='r_object_type']"/>
+    </contextSelection>
+    <groupBy xsi:type="fulltext:StringGroupBy"/>
+    <applyCondition/>
+  </filters>
+</fulltext:FullTextSearch>
